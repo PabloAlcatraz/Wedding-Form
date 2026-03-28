@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приглашение на свадьбу Степана и Валерии</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;600&family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Степан & Валерия</h1>
+            <p class="subtitle">Приглашаем вас разделить нашу радость</p>
+            <div class="date-box">13.06.2026</div>
+        </div>
+    </header>
+
+    <section class="details">
+        <h2>До нашей свадьбы осталось:</h2>
+        <div id="timer">
+            <div class="time-box"><span id="days">00</span><p>дней</p></div>
+            <div class="time-box"><span id="hours">00</span><p>часов</p></div>
+            <div class="time-box"><span id="minutes">00</span><p>минут</p></div>
+        </div>
+    </section>
+</div>
+    </section> <section class="calendar-section">
+        <h2>Мы ждём вас</h2>
+        <div class="month-title">ИЮНЬ</div>
+        
+        <div class="calendar-grid">
+            <div class="day-name">ПН</div><div class="day-name">ВТ</div><div class="day-name">СР</div>
+            <div class="day-name">ЧТ</div><div class="day-name">ПТ</div><div class="day-name">СБ</div><div class="day-name">ВС</div>
+            
+            <div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div>
+            <div>8</div><div>9</div><div>10</div><div>11</div><div>12</div>
+            <div class="wedding-day">13</div><div>14</div>
+            <div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div>
+            <div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div>
+            <div>29</div><div>30</div>
+        </div>
+
+        <p class="calendar-text">Не пропустите важное событие этого лета — <br>день нашей свадьбы!</p>
+        <div class="calendar-date-footer">13 / 06 / 26</div>
+    </section>
+    <script src="script.js"></script> 
+    </section> <section class="location-section">
+        <h2>Место проведения</h2>
+        
+        <div class="location-card">
+            <div class="photo-frame">
+                <img src="zags.png" alt="Дворец бракосочетания">
+                <div class="photo-caption">I Love You</div>
+            </div>
+            <div class="location-info">
+                <h3>Церемония</h3>
+                <p>Дворец бракосочетания №2<br>Москва, Шипиловский пр-д, 27.</p>
+                <a href="https://yandex.com/maps/-/CLxQULjn" target="_blank" class="map-btn">Как добраться</a>
+            </div>
+        </div>
+
+        <div class="location-card reverse">
+            <div class="location-info">
+                <h3>Банкетный зал</h3>
+                <p>Ресторан "Гранатовый сад № 1"<br>г. Москва, ул. Поречная 5/14, стр.1 </p>
+                <a href="https://yandex.com/maps/-/CPVOqBYu" target="_blank" class="map-btn">Как добраться</a>
+            </div>
+            <div class="photo-frame">
+                <img src="restaurant.jpg" alt="Ресторан"> 
+                <div class="photo-caption">Together Forever</div>
+            </div>
+        </div>
+    </section>
+<section class="timeline-section">
+    <h2>Тайминг</h2>
+    <div class="timeline-container">
+        <div class="timeline-line"></div>
+        <div class="timeline-items">
+            <div class="timeline-item">
+                <div class="time">12:00</div>
+                <div class="event">Сбор гостей</div>
+            </div>
+            <div class="timeline-item">
+                <div class="time">12:30</div>
+                <div class="event">Церемония регистрации</div>
+            </div>
+            <div class="timeline-item">
+                <div class="time">13:30</div>
+                <div class="event">Банкет</div>
+            </div>
+            <div class="timeline-item">
+                <div class="time">23:00</div>
+                <div class="event">Завершение вечера</div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="rsvp-section">
+    <h2>Анкета гостя</h2>
+    <p>Пожалуйста, подтвердите ваше присутствие на нашей свадьбе до 01.06.2026:</p>
+    
+    <form class="rsvp-form" id="wedding-form">
+        <div class="input-group">
+            <label>Имя и фамилия</label>
+            <input type="text" name="name" placeholder="Ваше имя" required>
+        </div>
+
+        <div class="input-group">
+            <label>Планируете ли Вы присутствовать?</label>
+            <div class="radio-group">
+                <label><input type="radio" name="attendance" value="yes" checked> С удовольствием приду!</label>
+                <label><input type="radio" name="attendance" value="no"> К сожалению, не смогу</label>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label>Если Вы будете не одни, заполните поле ниже</label>
+            <textarea name="plus-one" placeholder="Имена ваших спутников и детей" rows="2"></textarea>
+        </div>
+
+        <div class="input-group">
+            <label>Ваши предпочтения в напитках</label>
+            <div class="checkbox-grid">
+                <label><input type="checkbox" name="drink" value="champagne"> Шампанское</label>
+                <label><input type="checkbox" name="drink" value="wine-white"> Белое вино</label>
+                <label><input type="checkbox" name="drink" value="wine-red"> Красное вино</label>
+                <label><input type="checkbox" name="drink" value="whiskey"> Виски</label>
+                <label><input type="checkbox" name="drink" value="vodka"> Водка</label>
+                <label><input type="checkbox" name="drink" value="gin"> Джин</label>
+                <label><input type="checkbox" name="drink" value="rum"> Ром</label>
+                <label><input type="checkbox" name="drink" value="none"> Не пью алкоголь</label>
+            </div>
+        </div>
+
+        <button type="submit" class="submit-btn">Отправить</button>
+</form> 
+
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

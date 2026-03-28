@@ -1,0 +1,335 @@
+html {
+    scroll-behavior: smooth;
+}
+:root {
+    --pastel-bg: #FFFDF5;
+    --dusty-rose: #D4A5A5;
+    --text-gray: #4A4A4A;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--pastel-bg);
+    color: var(--text-gray);
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+
+.hero {
+    padding: 100px 20px;
+    background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7));
+}
+
+h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem;
+    font-weight: 300;
+    margin: 0;
+    color: var(--text-gray);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    margin: 20px 0;
+    text-transform: uppercase;
+}
+
+.date-box {
+    display: inline-block;
+    padding: 10px 40px;
+    border-top: 1px solid var(--dusty-rose);
+    border-bottom: 1px solid var(--dusty-rose);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+}
+
+.details {
+    padding: 50px 20px;
+}
+
+h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 2rem;
+}
+
+#timer {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.time-box span {
+    font-size: 3rem;
+    color: var(--dusty-rose);
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.time-box p {
+    margin: 0;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+/* Стили для секции календаря */
+.calendar-section {
+    padding: 80px 20px;
+    background-color: white; /* Делаем фон блока белым как на фото */
+    border-radius: 40px 40px 0 0; /* Закругляем углы сверху */
+    margin-top: -40px; /* Немного накладываем на предыдущий блок для эффекта карточки */
+    position: relative;
+    z-index: 2;
+}
+
+.month-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    letter-spacing: 5px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    max-width: 350px;
+    margin: 0 auto;
+    gap: 15px 5px;
+    font-size: 1.1rem;
+}
+
+.day-name {
+    color: #ccc;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+}
+
+/* Тот самый кружок вокруг 13 числа */
+.wedding-day {
+    position: relative;
+    z-index: 1;
+}
+
+.wedding-day::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 35px;
+    height: 35px;
+    border: 1px solid var(--text-gray);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.calendar-text {
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: #888;
+    line-height: 1.5;
+}
+
+.calendar-date-footer {
+    margin-top: 20px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    letter-spacing: 3px;
+}
+.location-section {
+    padding: 80px 20px;
+    background-color: var(--pastel-bg);
+}
+
+.location-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    margin-bottom: 80px;
+    flex-wrap: wrap; /* Чтобы на телефонах блоки вставали друг под друга */
+}
+
+.location-card.reverse {
+    flex-direction: row-reverse;
+}
+
+/* Стили рамки как на фото */
+.photo-frame {
+    background: white;
+    padding: 15px 15px 45px 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transform: rotate(-3deg); /* Легкий наклон для эффекта карточки */
+    transition: 0.3s;
+}
+
+.location-card.reverse .photo-frame {
+    transform: rotate(3deg);
+}
+
+.photo-frame img {
+    width: 250px;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+.photo-caption {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    color: #e63946; /* Красный цвет текста как на примере */
+    margin-top: 15px;
+}
+.location-info h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.map-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 30px;
+    background-color: #d60000; /* Ярко-красная кнопка как на фото */
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.map-btn:hover {
+    background-color: #a00000;
+    transform: scale(1.05);
+}
+.timeline-section {
+    padding: 80px 20px;
+    background-color: var(--pastel-bg);
+    text-align: center;
+}
+
+.timeline-container {
+    position: relative;
+    max-width: 900px;
+    margin: 50px auto 0;
+    padding-bottom: 20px;
+}
+
+/* Сама горизонтальная полоска */
+.timeline-line {
+    position: absolute;
+    top: 45px; /* Выравниваем линию по центру между временем и текстом */
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: var(--text-gray);
+    opacity: 0.5;
+    z-index: 1;
+}
+
+.timeline-items {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+}
+
+.timeline-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.timeline-item .time {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    background-color: var(--pastel-bg); /* Чтобы линия не просвечивала сквозь цифры */
+    padding: 0 10px;
+    margin-bottom: 25px;
+}
+
+.timeline-item .event {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-gray);
+    max-width: 120px;
+    line-height: 1.4;
+}
+
+/* Адаптив для телефонов: на маленьких экранах выстроим в колонку */
+@media (max-width: 600px) {
+    .timeline-items {
+        flex-direction: column;
+        gap: 40px;
+    }
+    .timeline-line {
+        display: none; /* Убираем линию на мобильных, так как там вертикальный список */
+    }
+}
+.rsvp-section {
+    padding: 80px 20px;
+    background-color: white;
+}
+
+.rsvp-form {
+    max-width: 600px;
+    margin: 40px auto 0;
+    text-align: left;
+}
+
+.input-group {
+    margin-bottom: 30px;
+}
+
+.input-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.input-group input[type="text"], 
+.input-group textarea {
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    outline: none;
+    font-family: inherit;
+}
+
+.radio-group label, 
+.checkbox-grid label {
+    display: block;
+    font-weight: normal;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+.checkbox-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #2D2D2E; /* Темный цвет кнопки как на фото */
+    color: white;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #4a4a4a;
+}
