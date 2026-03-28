@@ -22,7 +22,7 @@ const timerUpdate = setInterval(function() {
 
 // Код формы (ждем полной загрузки страницы)
 window.addEventListener('load', function() {
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbyhyiVf6veCh9E5BxrL8Ebebr7CUBqFA1051Csqn5g-jTf8Zxoex-795_yT2Z0vZ8u5Hw/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyZtscod7ttWF1bmdyGemoJcWlBH5byuQru8dtunv2elLLbk3La63A8Hcu-Nebhs89U_w/exec';
     const form = document.getElementById('wedding-form');
 
     if (form) {
@@ -39,6 +39,16 @@ window.addEventListener('load', function() {
       const selectedDrinks = Array.from(form.querySelectorAll('input[name="drink"]:checked'))
         .map(cb => cb.parentNode.textContent.trim())
         .join(', ');
+        // --- ВСТАВЬТЕ ЭТОТ БЛОК ТУТ ---
+if (selectedDrinks.length === 0) {
+    alert('Пожалуйста, выберите хотя бы один напиток (или вариант "Не пью").');
+    
+    // Возвращаем кнопку в активное состояние, чтобы пользователь мог исправить форму
+    submitBtn.disabled = false;
+    submitBtn.innerText = 'Отправить';
+    
+    return; // Останавливаем выполнение функции, форма не отправится
+}
 
       const formData = new FormData(form);
       formData.append('drinks', selectedDrinks);
