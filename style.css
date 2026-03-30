@@ -333,60 +333,55 @@ h2 {
 .submit-btn:hover {
     background-color: #4a4a4a;
 }
-/* МОБИЛЬНАЯ ВЕРСИЯ ТАЙМЛАЙНА */
+/* ГОРИЗОНТАЛЬНЫЙ ТАЙМЛАЙН НА МОБИЛЬНЫХ */
 @media screen and (max-width: 768px) {
-  /* Контейнер, в котором лежит весь список */
+  
+  /* Контейнер теперь позволяет скроллить вправо-влево */
   .timeline-container {
-    position: relative;
-    padding-left: 50px; /* Делаем отступ слева для линии */
-    margin: 20px auto;
-    max-width: 90%;
+    overflow-x: auto; /* Включаем горизонтальную прокрутку */
+    white-space: nowrap; /* Запрещаем перенос текста (важно для линии) */
+    padding: 40px 20px !important;
+    -webkit-overflow-scrolling: touch; /* Плавный скролл на iPhone */
   }
 
-  /* Твоя вертикальная линия */
+  /* Сама линия должна растягиваться по всей ширине контента */
   .timeline-line {
-    position: absolute;
-    left: 20px; /* Прижимаем линию к левому краю контейнера */
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background-color: #333; /* Цвет линии */
-    display: block !important; /* Убеждаемся, что она видна */
+    top: 50px !important; /* Настрой высоту линии под свои цифры */
+    height: 2px !important;
+    width: 1000px !important; /* Укажи ширину, чтобы линия была длинной */
+    display: block !important;
   }
 
-  /* Каждый пункт (12:00, 12:30...) */
+  /* Контейнер для пунктов */
+  .timeline-items {
+    display: flex !important;
+    flex-direction: row !important; /* ВСЕГДА в ряд */
+    flex-wrap: nowrap !important; /* Запрещаем перенос на вторую строку */
+    width: max-content; /* Ширина подстраивается под количество элементов */
+  }
+
+  /* Каждый пункт таймлайна */
   .timeline-item {
-    position: relative;
-    text-align: left !important; /* Выравниваем текст по левому краю */
-    margin-bottom: 35px !important;
+    min-width: 150px; /* Минимальная ширина одного шага, чтобы не слипались */
+    margin: 0 20px !important;
+    text-align: center !important;
+    display: inline-block;
   }
 
-  /* Рисуем точку на линии рядом с каждым временем */
+  /* Скрываем кружки-маркеры, если они мешают на линии */
   .timeline-item::before {
-    content: '';
-    position: absolute;
-    left: -35px; /* Ставим точку ровно на линию */
-    top: 5px;
-    width: 12px;
-    height: 12px;
-    background-color: #fff; /* Внутри белая */
-    border: 2px solid #333; /* Контур цвета линии */
-    border-radius: 50%;
-    z-index: 2;
+    display: none !important;
   }
 
-  /* Настройка шрифтов */
+  /* Настройка времени и события */
   .time {
-    font-size: 1.2rem;
-    font-weight: bold;
-    display: block;
-    margin-bottom: 4px;
+    font-size: 1.1rem !important;
+    margin-bottom: 15px !important; /* Чтобы время было НАД линией */
   }
 
   .event {
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #555;
+    margin-top: 15px !important; /* Чтобы событие было ПОД линией */
+    font-size: 0.8rem !important;
+    white-space: normal; /* А тут текст события пусть переносится */
   }
 }
