@@ -333,3 +333,66 @@ h2 {
 .submit-btn:hover {
     background-color: #4a4a4a;
 }
+/* ПОЛНАЯ ПРАВКА МОБИЛЬНОГО ТАЙМЛАЙНА С ЛИНИЕЙ ДЛЯ style.css */
+@media screen and (max-width: 768px) {
+  /* 1. Настройка родительского контейнера тайминга */
+  .timing-section {
+    padding: 40px 15px !important; /* Уменьшаем общие поля секции */
+  }
+
+  /* 2. Создаем контейнер для самой линии */
+  .timing-list {
+    position: relative;
+    max-width: 320px; /* Центрируем блок таймлайна на экране */
+    margin: 0 auto; /* Центрируем весь блок */
+    padding-left: 20px; /* Создаем место для линии слева */
+    text-align: left; /* ВАЖНО: Переключаем выравнивание на лево для таймлайна */
+    list-style: none; /* Убираем стандартные точки списка, если они есть */
+  }
+
+  /* 3. Отрисовываем саму вертикальную линию */
+  .timing-list::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 2px; /* Ширина линии */
+    background-color: #333; /* Цвет линии (такой же как у текста) */
+  }
+
+  /* 4. Настройка отдельных элементов (блоков времени) */
+  .timing-item {
+    position: relative;
+    margin-bottom: 25px !important; /* Расстояние между событиями (например, между 12:00 и 12:30) */
+  }
+
+  /* 5. Отрисовываем точку на линии для каждого события */
+  .timing-item::before {
+    content: '';
+    position: absolute;
+    left: -24px; /* Align dot with the line (20px list padding + half dot width) */
+    top: 10px; /* Настраиваем вертикальное положение точки относительно текста времени */
+    width: 10px; /* Размер точки */
+    height: 10px; /* Размер точки */
+    border-radius: 50%; /* Делаем точку круглой */
+    background-color: #fff; /* Внутренний цвет точки (белый) */
+    border: 2px solid #333; /* Цвет контура точки (такой же как у линии и текста) */
+    z-index: 1; /* Чтобы точка была поверх линии */
+  }
+
+  /* 6. Схлопываем расстояние между временем и текстом внутри блока */
+  .timing-item h3 {
+    margin: 0 0 5px 0 !important; /* Keep time close to description */
+    font-weight: normal; /* Легкий шрифт как на скрине */
+    font-size: 1.2em; /* Размер времени */
+  }
+
+  .timing-item p {
+    margin: 0 !important;
+    font-size: 0.9em; /* Чуть меньше шрифт для описания */
+    text-transform: uppercase; /* Все заглавные */
+    letter-spacing: 1px; /* Небольшой межбуквенный интервал */
+    color: #555; /* Чуть светлее для описания */
+  }
+}
