@@ -385,3 +385,21 @@ h2 {
     white-space: normal; /* А тут текст события пусть переносится */
   }
 }
+@media (max-width: 768px) {
+    /* Находим перевернутую карточку (Банкетный зал) */
+    .location-card.reverse {
+        display: flex;
+        flex-direction: column; /* Выстраиваем в колонку */
+    }
+
+    /* Заставляем фотографию всегда быть ПЕРВОЙ */
+    .location-card.reverse .photo-frame {
+        order: -1; 
+        margin-bottom: 20px; /* Отступ между фото и текстом, как в первом блоке */
+    }
+
+    /* Текст будет идти ВТОРЫМ */
+    .location-card.reverse .location-info {
+        order: 1;
+    }
+}
