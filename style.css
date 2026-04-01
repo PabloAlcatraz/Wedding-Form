@@ -2,7 +2,7 @@ html {
     scroll-behavior: smooth;
 }
 :root {
-    --pastel-bg: #FFFDF5;
+    --pastel-bg: #fffafa; /* Меняем старый желтый на новый розово-белый */
     --dusty-rose: #D4A5A5;
     --text-gray: #4A4A4A;
 }
@@ -10,7 +10,8 @@ html {
 body {
     margin: 0;
     padding: 0;
-    background-color: var(--pastel-bg);
+    /* Этот цвет — очень нежный розовый, почти белый */
+    background-color: #fffafa; 
     color: var(--text-gray);
     font-family: 'Montserrat', sans-serif;
     text-align: center;
@@ -110,27 +111,20 @@ h2 {
 /* Тот самый кружок вокруг 13 числа */
 .wedding-day {
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #333 !important; /* Цвет цифры */
-    font-weight: bold;
     z-index: 1;
 }
 
-.wedding-day::before {
-    content: "";
+.wedding-day::after {
+    content: '';
     position: absolute;
-    top: 48%; /* Чуть выше центра для баланса сердечка */
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 42px; /* Размер сердечка */
-    height: 42px;
+    width: 35px;
+    height: 35px;
+    border: 1px solid var(--text-gray);
+    border-radius: 50%;
     z-index: -1;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e74c3c' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z'%3E%3C/path%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
 }
 
 .calendar-text {
@@ -423,3 +417,9 @@ h2 {
         background: rgba(0, 0, 0, 0.15); /* Полупрозрачный серый ползунок */
         border-radius: 10px; /* Скругленные края */
     }
+    .details, 
+.location-section, 
+.timeline-section, 
+.rsvp-section {
+    background-color: transparent !important;
+}
