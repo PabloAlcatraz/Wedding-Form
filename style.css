@@ -19,7 +19,7 @@ body {
 
 .hero {
     padding: 100px 20px;
-    background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7));
+    background: transparent !important; /* Делаем блок полностью прозрачным */
 }
 
 h1 {
@@ -78,9 +78,7 @@ h2 {
 /* Стили для секции календаря */
 .calendar-section {
     padding: 80px 20px;
-    background-color: white; /* Делаем фон блока белым как на фото */
-    border-radius: 40px 40px 0 0; /* Закругляем углы сверху */
-    margin-top: -40px; /* Немного накладываем на предыдущий блок для эффекта карточки */
+    background-color: transparent !important; /* Убираем белую полосу */
     position: relative;
     z-index: 2;
 }
@@ -422,4 +420,14 @@ h2 {
 .timeline-section, 
 .rsvp-section {
     background-color: transparent !important;
+}
+/* Тонкая линия между таймером и календарем */
+.calendar-section {
+    border-top: 1px solid rgba(212, 165, 165, 0.3);
+    margin-top: 40px;
+}
+
+/* Тонкая линия перед местом проведения */
+.location-section {
+    border-top: 1px solid rgba(212, 165, 165, 0.3);
 }
