@@ -431,3 +431,26 @@ h2 {
 .location-section {
     border-top: 1px solid rgba(212, 165, 165, 0.3);
 }
+/* Включаем плавный скролл для мобильных */
+.timeline-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; 
+    padding-bottom: 15px; /* Даем место снизу, чтобы полоска не налипала на текст */
+}
+
+/* Настраиваем ширину/высоту самого скроллбара */
+.timeline-container::-webkit-scrollbar {
+    height: 4px; /* Делаем полоску тонкой и аккуратной */
+}
+
+/* Настраиваем фон (дорожку), по которой ездит ползунок */
+.timeline-container::-webkit-scrollbar-track {
+    background-color: #f3f3f3; /* Очень светло-серый, почти невидимый */
+    border-radius: 10px;
+}
+
+/* Настраиваем сам ползунок */
+.timeline-container::-webkit-scrollbar-thumb {
+    background-color: rgba(212, 165, 165, 0.6); /* Ваш пыльно-розовый цвет, немного прозрачный */
+    border-radius: 10px;
+}
