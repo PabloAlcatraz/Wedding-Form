@@ -431,39 +431,133 @@ h2 {
 .location-section {
     border-top: 1px solid rgba(212, 165, 165, 0.3);
 }
-/* Включаем плавный скролл для мобильных */
+/* =================================================0
+   ПОЛНАЯ ПЕРЕСБОРКА ТАЙМЛАЙНА (ЧИСТЫЙ КОД)
+   ================================================== */
+
+.timeline-section {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+/* Контейнер для скролла на мобильных */
 .timeline-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 50px auto 0;
     overflow-x: auto;
-    -webkit-overflow-scrolling: touch; 
-    padding-bottom: 15px; /* Даем место снизу, чтобы полоска не налипала на текст */
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 30px;
 }
 
-/* Настраиваем ширину/высоту самого скроллбара */
+/* Скрываем стандартный скроллбар, чтобы сделать свой красивый */
 .timeline-container::-webkit-scrollbar {
-    height: 4px; /* Делаем полоску тонкой и аккуратной */
+    height: 4px;
 }
-
-/* Настраиваем фон (дорожку), по которой ездит ползунок */
-.timeline-container::-webkit-scrollbar-track {
-    background-color: #f3f3f3; /* Очень светло-серый, почти невидимый */
-    border-radius: 10px;
-}
-
-/* Настраиваем сам ползунок */
 .timeline-container::-webkit-scrollbar-thumb {
-    background-color: rgba(212, 165, 165, 0.6); /* Ваш пыльно-розовый цвет, немного прозрачный */
+    background-color: rgba(212, 165, 165, 0.5);
     border-radius: 10px;
 }
-/* Выстраиваем элементы тайминга в одну линию */
+
+/* Сетка для пунктов */
 .timeline-items {
     display: flex;
-    flex-wrap: nowrap; /* Запрещаем перенос на новую строку */
-    gap: 30px; /* Делаем расстояние между событиями */
-    padding: 10px 0;
+    justify-content: space-around;
+    position: relative;
+    z-index: 2;
+    /* На мобильных пункты не будут сжиматься */
+    width: 100%; 
+    min-width: 800px; 
 }
 
-/* Указываем ширину для каждого отдельного события, чтобы они не слипались */
+/* Горизонтальная линия */
+.timeline-line {
+    position: absolute;
+    /* 18px — это идеальная высота, чтобы линия прошла по центру цифр */
+    top: 18px; 
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: #ccc;
+    z-index: 1;
+    min-width: 800px;
+}
+
 .timeline-item {
-    flex: 0 0 200px; /* Каждый блок будет шириной 200 пикселей */
-    text-align: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+/* Цифры времени */
+.time {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: #4a4a4a;
+    background-color: #fffafa; /* Фон сайта, чтобы "разрезать" линию */
+    padding: 0 15px;
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 3; /* Выше линии */
+    line-height: 1;
+}
+
+/* Подпись под временем */
+.event {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #888;
+    max-width: 130px;
+    line-height: 1.4;
+    position: relative;
+    z-index: 3;
+}
+
+/* --- АДАПТИВ ПОД ТЕЛЕФОНЫ --- */
+@media screen and (max-width: 768px) {
+    .time {
+        font-size: 24px; /* Чуть меньше для узких экранов */
+        padding: 0 8px;
+    }
+    
+    .timeline-container {
+        /* Делаем отступ слева, чтобы первый пункт не прилипал к краю */
+        padding-left: 20px;
+    }
+}
+@media screen and (max-width: 768px) {
+    /* --- НАШЕ ИСПРАВЛЕНИЕ: КРУПНЫЕ ШРИФТЫ НА ТЕЛЕФОНЕ --- */
+    .timeline-item .time {
+        font-size: 28px !important; /* Было 24px, ставим 28px, чтобы стало крупно */
+        font-weight: 600 !important; /* Делаем жирнее */
+        margin-bottom: 12px !important;
+        background-color: #fffafa !important; /* Убедись, что это цвет фона твоего сайта */
+        padding: 0 10px !important;
+        display: inline-block !important;
+    }
+
+    /* --- ПОДПИСЬ ПОД ЦИФРАМИ --- */
+    .timeline-item .event {
+        font-size: 13px !important; /* Поднимаем размер текста подписи, чтобы он читался */
+        line-height: 1.3 !important;
+        white-space: normal !important;
+    }
+    
+    /* Оставляем настройки контейнера как были для скролла */
+    .timeline-container {
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        display: block !important;
+        padding-bottom: 40px !important; 
+    }
+    
+    /* Не трогаем gap в .timeline-items, чтобы всё было в ряд */
+    .timeline-items {
+        gap: 25px !important;
+    }
 }
